@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title title="Cada vez que olho pra você, me apaixono mais 💖">Para Thayssa 💙</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #001f3f;
+      color: white;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      position: absolute;
+      top: -100px;
+      width: 100%;
+      font-size: 3em;
+      color: white;
+      animation: descendo 8s linear infinite;
+    }
+    @keyframes descendo {
+      0% { top: -100px; }
+      100% { top: 110%; }
+    }
+    .slideshow {
+      margin-top: 120px;
+      position: relative;
+      max-width: 500px;
+      height: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
+    .texto {
+      margin: 40px auto;
+      max-width: 800px;
+      font-size: 1.2em;
+      line-height: 1.8;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+    }
+    /* Corações e cartinhas flutuando */
+    .floating {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: cair 10s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes cair {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Thayssa</h1>
+
+  <div class="slideshow">
+    <img src="fotos/foto1.webp" class="active">
+    <img src="fotos/foto2.webp">
+    <img src="fotos/foto3.webp">
+    <img src="fotos/foto4.webp">
+    <img src="fotos/foto5.webp">
+  </div>
+
+  <div class="texto">
+    <p>“Ofereço-te agora, com o mais puro zelo de meu coração, esta dádiva singela, a ti que és razão de meu amor e objeto de minha reverência. Rogo-te que a recebas como símbolo de minha lealdade e de meu afeto, pois em ti contemplo a virtude, a nobreza e a bondade que iluminam minha senda. Que através deste gesto possas sentir o ardor profundo que em minha alma arde por ti, amor que juro sustentar enquanto meu espírito houver de habitar este mundo — e ainda além do véu do infinito.”</p>
+
+    <p>E se eu te olhar cem vezes, acredite, em cada uma delas estarei me apaixonando um pouco mais.</p>
+
+    <p>Pois vós sois, sem dúvida, a personificação da beleza celeste, cuja graça resplandece como a aurora e enleva o coração deste humilde admirador.</p>
+  </div>
+
+  <!-- Música -->
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1" frameborder="0" allow="autoplay"></iframe>
+
+  <script>
+    // Slideshow
+    let index = 0;
+    const slides = document.querySelectorAll(".slideshow img");
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 4000);
+
+    // Criar corações e cartinhas
+    const emojis = ["❤️", "💌"];
+    function criarFlutuante() {
+      const el = document.createElement("div");
+      el.classList.add("floating");
+      el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(el);
+      setTimeout(() => { el.remove(); }, 10000);
+    }
+    setInterval(criarFlutuante, 700);
+  </script>
+</body>
+</html>
